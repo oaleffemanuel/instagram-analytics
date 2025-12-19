@@ -1,22 +1,109 @@
 # Instagram Organic Analytics Dashboard
 
-Python script to collect organic Instagram metrics using the Meta Instagram Graph API.
+This project collects and organizes **organic Instagram content metrics** and sends them to a Google Sheet, which serves as the data source for internal dashboards and reporting.
 
-## Features
-- Fetch posts and reels
-- Collect engagement metrics (likes, comments, saves, shares, reach)
-- Export data to CSV
-- Ready to integrate with dashboards (Sheets, Looker, Lovable)
+The goal is to centralize organic performance data in a simple, structured, and extensible way, enabling weekly and monthly analysis without relying on third-party tools.
+
+---
+
+## What this project does
+
+- Fetches organic Instagram media (posts and reels)
+- Retrieves engagement metrics per content:
+  - Views
+  - Likes
+  - Comments
+  - Shares
+  - Saves
+- Sends the data to a Google Sheet used as a database
+- Keeps the process lightweight and automation-ready
+
+This project focuses **only on organic content**. Paid metrics are intentionally excluded.
+
+---
 
 ## Tech Stack
-- Python
+
+- Python 3
 - Instagram Graph API
-- Requests
-- Environment Variables (.env)
+- Google Sheets (Apps Script integration)
+- Environment variables for secrets management
 
-## Setup
+---
 
-1. Clone the repository
+## Project Structure
+
+instagram_analytics/
+│
+├── src/
+│   ├── instagram_client.py
+│   ├── data_formatter.py
+│   └── run.py
+│
+├── scripts/
+│   └── smoke_test.py
+│
+├── .env.example
+├── .gitignore
+├── requirements.txt
+└── README.md
+
+---
+
+## Environment Variables
+
+Create a `.env` file based on `.env.example`:
+
+INSTAGRAM_ACCESS_TOKEN=your_access_token_here
+INSTAGRAM_USER_ID=your_instagram_user_id_here
+GOOGLE_SHEET_URL=your_google_sheet_url_here
+
+Never commit your `.env` file.
+
+---
+
+## How it works
+
+1. Fetches recent Instagram media from the connected business account
+2. Retrieves engagement insights for each content
+3. Formats the data to match the Google Sheets database
+4. Sends the metrics to the sheet for reporting and dashboards
+
+---
+
+## Running locally
+
+Install dependencies:
+
 ```bash
-git clone https://github.com/SEU_USUARIO/instagram-analytics.git
-cd instagram-analytics
+pip install -r requirements.txt
+
+Run a connectivity test:
+
+python3 scripts/smoke_test.py
+
+Run the full pipeline:
+
+python3 src/run.py
+
+
+⸻
+
+Current limitations
+	•	Follower growth is tracked manually
+	•	Revenue attribution is handled separately
+	•	Access tokens must be renewed externally
+
+⸻
+
+Roadmap
+	•	Token refresh automation
+	•	Weekly and monthly aggregations
+	•	Multi-platform support
+	•	Dashboard enhancements
+
+⸻
+
+Internal Use
+
+This repository is intended for internal analytics and experimentation.

@@ -2,13 +2,19 @@
 .env
 
 # Python
+output/
 __pycache__/
 *.pyc
-.venv/
+*.pyo
+*.pyd
+
+# Virtual environment
 venv/
+.env/
+.env.local/
 
-# VSCode
-.vscode/
+# OS
+.DS_Store
 
-# Data
-data/*.csv
+# Logs
+*.log
