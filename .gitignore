@@ -1,0 +1,14 @@
+# Environment variables
+.env
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# VSCode
+.vscode/
+
+# Data
+data/*.csv
