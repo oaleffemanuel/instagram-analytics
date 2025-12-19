@@ -35,18 +35,24 @@ This project focuses **only on organic content**. Paid metrics are intentionally
 
 instagram_analytics/
 │
-├── src/
-│   ├── instagram_client.py
-│   ├── data_formatter.py
-│   └── run.py
+├── output/
+│   └── .gitkeep
 │
 ├── scripts/
 │   └── smoke_test.py
 │
+├── src/
+│   ├── __init__.py
+│   ├── config.py
+│   ├── export_csv.py
+│   ├── extract.py
+│   ├── instagram_analytics.py
+│   └── meta_client.py
+│
 ├── .env.example
 ├── .gitignore
-├── requirements.txt
-└── README.md
+├── README.md
+└── requirements.txt
 
 ---
 
